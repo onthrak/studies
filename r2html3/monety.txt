@@ -1,0 +1,35 @@
+library(R2HTML)
+HTMLStart(outdir=".", filename="raport")
+library(scatterplot3d)
+library("datasets")
+moneta1=sample(0:2,100,replace=T)
+moneta2=sample(0:2,100,replace=T)
+moneta1 # orze³ to 0, reszka to 1 a kant to 2
+summary(moneta1)
+moneta2
+summary(moneta2)
+barplot((moneta1),fg="blue",col=rainbow(10),font=3,main="rzuty monety 1")
+dev.copy(jpeg,filename="rzuty monety 1.jpg");
+dev.off ()
+plot(density(moneta1),main="Wykres gêstosci rzutow monety nr 1",type="p",fg="blue",col=rainbow(10),font=3)
+dev.copy(jpeg,filename="Wykres gêstosci rzutow monety nr 1.jpg");
+dev.off ()
+barplot((moneta2),fg="blue",col=rainbow(10),font=3,main="rzuty monety 2")
+dev.copy(jpeg,filename="rzuty monety 2.jpg");
+dev.off ()
+plot(density(moneta2),main="Wykres gêstosci rzutow monety nr 2",type="p",fg="blue",col=rainbow(10),font=3)
+dev.copy(jpeg,filename="Wykres gêstosci rzutow monety nr 2.jpg");
+dev.off ()
+t.test(moneta1,moneta2,fg="red",col.main="yellow")
+wilcox.test(moneta1,moneta2,fg="red",col.main="yellow")
+moneta3=sample(0:1,100,replace=T)
+moneta3
+scatterplot3d(moneta1,moneta2,moneta3,main="rzuty 3 monet w przestrzeni 3-wymiarowej",type="b",fg="white",col.main="red")
+dev.copy(jpeg,filename="rzuty 3 monet w przestrzeni 3-wymiarowej.jpg");
+dev.off ()
+fit=lm(moneta3~moneta1)
+summary(fit)
+plot(moneta3,moneta1,main="Regresja liniowa",type="p");abline(fit)
+dev.copy(jpeg,filename="Regresja liniowa.jpg");
+HTMLStop()
+

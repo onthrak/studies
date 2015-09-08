@@ -1,0 +1,68 @@
+library(R2HTML)
+HTMLStart(outdir=".", filename="raport")
+library(foreign)
+library(scatterplot3d)
+x = read.spss("wynagrodzenia.sav", to.data.frame=TRUE, use.value.labels=TRUE)
+x
+summary(x)
+y=x[2:11]
+pairs(y,main="Zale¿noœci pomiêdzy wszystkimi latami - wynagrodzenia w polsce",type="b",fg="red",col.main="blue")
+dev.copy(jpeg,filename="Zale¿noœci pomiêdzy wszystkimi latami - wynagrodzenia w polsce.jpg");
+dev.off ()
+a=y[1]
+b=y[2]
+summary(a)
+summary(b)
+rok2004=t(a)
+rok2005=t(b)
+plot(rok2004,rok2005,main="Zaleznosc pomiedzy wynagrodzeniami z 2004 roku i 2005 roku",type="b",fg="red",col.main="blue")
+dev.copy(jpeg,filename="Zaleznosc pomiedzy wynagrodzeniami z 2004 roku i 2005 roku.jpg");
+dev.off ()
+var.test(rok2004,rok2005)
+wilcox.test(rok2004,rok2005)
+t.test(rok2004,rok2005)
+wilcox.test(rok2004,rok2005)
+kruskal.test(rok2004,rok2005)
+wilcox.test(rok2004,rok2005)
+c=y[3]
+summary(c)
+rok2006=t(c)
+scatterplot3d(rok2004,rok2005,rok2006,main="Zaleznoœæ w latach 2004-2006",type="b",fg="red",col.main="blue")
+dev.copy(jpeg,filename="Zaleznoœæ w latach 2004-2006.jpg");
+dev.off ()
+wyn_od_2004_do_2006=data.frame(wynagrodzenie=c(rok2004,rok2005,rok2006),rok=rep(2004:2006,each=16))
+bartlett.test(wynagrodzenie ~ rok,wyn_od_2004_do_2006)
+kruskal.test(wynagrodzenie ~ rok,wyn_od_2004_do_2006)
+anova(aov(wynagrodzenie ~ rok,wyn_od_2004_do_2006))
+library("datasets")
+kosci1=sample(1:6,100,replace=T)
+kosci2=sample(1:6,100,replace=T)
+kosci1
+kosci2
+hist(kosci1,font=3,ylim=c(0,25),main="Histogram kostki nr1")
+dev.copy(jpeg,filename="Histogram kostki nr1.jpg");
+dev.off ()
+hist(kosci2,font=3,ylim=c(0,25),main="Histogram kostki nr2")
+dev.copy(jpeg,filename="Histogram kostki nr2.jpg");
+dev.off ()
+plot(density(kosci1),main="Wykres gêstosci kostki nr 1",type="p",fg="red",col.main="blue",font=3)
+dev.copy(jpeg,filename="Wykres gêstosci kostki nr 1.jpg");
+dev.off ()
+plot(density(kosci2),main="Wykres gêstosci kostki nr 2",type="p",fg="red",col.main="blue",font=3)
+dev.copy(jpeg,filename="Wykres gêstosci kostki nr 2.jpg");
+dev.off ()
+plot(kosci1,kosci2,main="zaleznosæ rzutów kostk¹",type="b",fg="red",col.main="blue",font=3)
+dev.copy(jpeg,filename="zaleznosæ rzutów kostk¹.jpg");
+dev.off ()
+t.test(kosci1,kosci2,fg="red",col.main="blue")
+wilcox.test(kosci1,kosci2,fg="red",col.main="blue")
+boxplot(kosci1,kosci2,main="Wykres pude³kowy",fg="red",col.main="blue")
+dev.copy(jpeg,filename="Wykres pude³kowy.jpg");
+dev.off ()
+fit=lm(kosci2~kosci1)
+summary(fit)
+plot(kosci1,kosci2,main="Regresja liniowa");abline(fit)
+dev.copy(jpeg,filename="Regresja liniowa.jpg");
+dev.off ()
+HTMLStop()
+

@@ -1,0 +1,11 @@
+do pracy zosta³y u¿yte nastêpuj¹ce pakiety:
+foreign
+hwriter
+datasets
+R2HTML
+scatterplot3d
+
+
+
+Wersja R:
+r2.12.2 64 bit

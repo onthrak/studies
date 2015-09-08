@@ -1,0 +1,137 @@
+library(R2HTML)
+HTMLStart(outdir=".", filename="raport")
+library(foreign)
+library(scatterplot3d)
+x1 = read.spss("rok2008.sav", to.data.frame=TRUE, use.value.labels=TRUE)
+x2 = read.spss("rok2009.sav", to.data.frame=TRUE, use.value.labels=TRUE)
+x3 = read.spss("rok2010.sav", to.data.frame=TRUE, use.value.labels=TRUE)
+inw1=x1[2]
+inw2=x2[2]
+inw3=x3[2]
+srt1=x1[3]
+srt2=x2[3]
+srt3=x3[3]
+inw1
+inw2
+inw3
+srt1
+srt2
+srt3
+a=t(inw1)
+b=t(inw2)
+c=t(inw3)
+
+barplot(a,col=rainbow(10),main="Nak³ady inwestycyjne w przedsiêbiorstwach w mln z³. ogó³em rok 2008",bg="red",col.main="blue",xlab="Powiaty",ylab="Nak³ady w mln z³.",col.lab="red",col.axis="green")
+dev.copy(jpeg,filename="Nak³ady inwestycyjne w przedsiêbiorstwach w mln z³. ogó³em rok 2008.jpg");
+dev.off ()
+barplot(b,col=rainbow(10),main="Nak³ady inwestycyjne w przedsiêbiorstwach w mln z³. ogó³em rok 2009",bg="red",col.main="blue",xlab="Powiaty",ylab="Nak³ady w mln z³.",col.lab="red",col.axis="green")
+dev.copy(jpeg,filename="Nak³ady inwestycyjne w przedsiêbiorstwach w mln z³. ogó³em rok 2009.jpg");
+dev.off ()
+barplot(c,col=rainbow(10),main="Nak³ady inwestycyjne w przedsiêbiorstwach w mln z³. ogó³em rok 2010",bg="red",col.main="blue",xlab="Powiaty",ylab="Nak³ady w mln z³.",col.lab="red",col.axis="green")
+dev.copy(jpeg,filename="Nak³ady inwestycyjne w przedsiêbiorstwach w mln z³. ogó³em rok 2010.jpg");
+dev.off ()
+plot(a,b,type="p",main="Zale¿noœæ pomiêdzy inwestycjami w 2008 i 2009 roku",col=rainbow(20),xlab="Inwestycje w 2008 roku",ylab="inwestycje w 2009 roku",col.main="green",col.lab="red",col.axis="green")
+dev.copy(jpeg,filename="Zale¿noœæ pomiêdzy inwestycjami w 2008 i 2009 roku.jpg");
+dev.off ()
+plot(b,c,type="p",main="Zale¿noœæ pomiêdzy inwestycjami w 2009 i 2010 roku",col=rainbow(20),xlab="Inwestycje w 2009 roku",ylab="inwestycje w 2010 roku",col.main="green",col.lab="red",col.axis="green")
+dev.copy(jpeg,filename="Zale¿noœæ pomiêdzy inwestycjami w 2009 i 2010 roku.jpg");
+dev.off ()
+
+shapiro.test(a)
+shapiro.test(b)
+shapiro.test(c)
+wilcox.test(a,b)
+wilcox.test(b,c)
+inwestycje08_10=data.frame(inwestycje=c(a,b,c),rok=rep(2008:2010,each=379))
+bartlett.test(inwestycje ~ rok,inwestycje08_10)
+kruskal.test(inwestycje ~ rok,inwestycje08_10)
+anova(aov(inwestycje ~ rok,inwestycje08_10))
+d=t(srt1)
+e=t(srt2)
+f=t(srt3)
+
+barplot(d,col=rainbow(10),main="Wartoœæ brutto œrodków trwa³ych w przedsiêbiorstwach w mln. z³. ogó³em rok 2008",bg="red",col.main="red",xlab="Powiaty",ylab="Wartoœæ œrodków trwa³ych w mln z³.",col.lab="blue",col.axis="green")
+dev.copy(jpeg,filename="Wartoœæ brutto œrodków trwa³ych w przedsiêbiorstwach w mln. z³. ogó³em rok 2008.jpg");
+dev.off ()
+barplot(e,col=rainbow(10),main="Wartoœæ brutto œrodków trwa³ych w przedsiêbiorstwach w mln. z³. ogó³em rok 2009",bg="red",col.main="red",xlab="Powiaty",ylab="Wartoœæ œrodków trwa³ych w mln z³.",col.lab="blue",col.axis="green")
+dev.copy(jpeg,filename="Wartoœæ brutto œrodków trwa³ych w przedsiêbiorstwach w mln. z³. ogó³em rok 2009.jpg");
+dev.off ()
+barplot(f,col=rainbow(10),main="Wartoœæ brutto œrodków trwa³ych w przedsiêbiorstwach w mln. z³. ogó³em rok 2010",bg="red",col.main="red",xlab="Powiaty",ylab="Wartoœæ œrodków trwa³ych w mln z³.",col.lab="blue",col.axis="green")
+dev.copy(jpeg,filename="Wartoœæ brutto œrodków trwa³ych w przedsiêbiorstwach w mln. z³. ogó³em rok 2010.jpg");
+dev.off ()
+
+plot(d,e,type="p",main="Zale¿noœæ pomiêdzy wartoœciami œrodków trwa³ych w 2008 i 2009 roku",col=rainbow(20),xlab="Œrodki trwa³e w 2008 roku",ylab="Œrodki trwa³e w 2009 roku",col.main="red",col.lab="blue",col.axis="green")
+dev.copy(jpeg,filename="Zale¿noœæ pomiêdzy wartoœciami œrodków trwa³ych roku.jpg");
+dev.off ()
+plot(e,f,type="p",main="Zale¿noœæ pomiêdzy wartoœciami œrodków trwa³ych w 2009 i 2010 roku",col=rainbow(20),xlab="Œrodki trwa³e w 2009 roku",ylab="Œrodki trwa³e w 2010 roku",col.main="red",col.lab="blue",col.axis="green")
+dev.copy(jpeg,filename="Zale¿noœæ pomiêdzy wartoœciami œrodków trwa³ych roku.jpg");
+dev.off ()
+
+shapiro.test(d)
+shapiro.test(e)
+shapiro.test(f)
+wilcox.test(d,e)
+wilcox.test(e,f)
+
+œrodki_trwa³e_08_10=data.frame(œrodki_trwa³e=c(d,e,f),rok=rep(2008:2010,each=379))
+bartlett.test(œrodki_trwa³e ~ rok,œrodki_trwa³e_08_10)
+kruskal.test(œrodki_trwa³e ~ rok,œrodki_trwa³e_08_10)
+anova(aov(œrodki_trwa³e ~ rok,œrodki_trwa³e_08_10))
+
+wyniki_lotto.txt <- read.table("wyniki lotto.txt", header=F)
+l=print(wyniki_lotto.txt)
+summary(l)
+kula1=l[1]
+kula2=l[2]
+kula3=l[3]
+kula4=l[4]
+kula5=l[5]
+kula6=l[6]
+
+k1=t(kula1)
+k2=t(kula2)
+k3=t(kula3)
+k4=t(kula4)
+k5=t(kula5)
+k6=t(kula6)
+
+los=t(l)
+summary(los)
+pairs(los,col=rainbow(20))
+dev.copy(jpeg,filename="Rzuty.jpg");
+dev.off ()
+hist(los,main="Czêstoœæ wyrzuceñ poszczególnych numerów kul",col.main="green",xlab="Numery kul",ylab="Czêstoœæ wyst¹pienia",col.lab="green",col=rainbow(20),col.axis="red")
+dev.copy(jpeg,filename="Czêstoœæ wyrzuceñ poszczególnych numerów kul.jpg");
+dev.off ()
+
+
+plot(density(los,bw=2),main="Wykres gêstoœæi",col.main="green",xlab="Numery kul",ylab="Gêstoœæ")
+dev.copy(jpeg,filename="Wykres gêstoœæi.jpg");
+dev.off ()
+
+hist(los,main="Wykres z³o¿ony",col.main="green",xlab="Numery kul",ylab="Gêstoœæ",col.lab="green",col=rainbow(20),col.axis="red",prob=T);lines(density(los));rug(los)
+dev.copy(jpeg,filename="Wykres z³o¿ony.jpg");
+dev.off ()
+
+boxplot(los,main="Wykres pude³kowy",col.main="green",xlab="Numer losowania",ylab="Numer kuli",col.lab="green",col=rainbow(20),col.axis="red")
+dev.copy(jpeg,filename="Wykres pude³kowy lotto.jpg");
+dev.off ()
+
+
+t.test(los,fg="red",col.main="blue")
+wilcox.test(los,fg="red",col.main="blue")
+shapiro.test(los)
+
+pr=rep(1/49,49)  # dla uproszczenia losowanie ze zwracaniem
+chisq.test(los,p=pr)
+
+
+
+
+
+
+
+
+
+
+HTMLStop()

@@ -1,0 +1,110 @@
+<html><head><link rel=stylesheet href=R2HTML.css type=text/css> </head><body bgcolor="#E5F5FF">  <center> <img src=R2HTMLlogo.gif> <hr size=1></center><br>
+<br><li><a class=command href='./raport_main.html#Num2' target=main> library(foreign)</a>
+<br><li><a class=command href='./raport_main.html#Num3' target=main> x1 = read.spss("rok2008.sav", to.data.frame = TRUE, use.value.labels = TRUE)</a>
+<br><li><a class=command href='./raport_main.html#Num4' target=main> x2 = read.spss("rok2009.sav", to.data.frame = TRUE, use.value.labels = TRUE)</a>
+<br><li><a class=command href='./raport_main.html#Num5' target=main> x3 = read.spss("rok2010.sav", to.data.frame = TRUE, use.value.labels = TRUE)</a>
+<br><li><a class=command href='./raport_main.html#Num6' target=main> inw1 = x1[2]</a>
+<br><li><a class=command href='./raport_main.html#Num7' target=main> inw2 = x2[2]</a>
+<br><li><a class=command href='./raport_main.html#Num8' target=main> inw3 = x3[2]</a>
+<br><li><a class=command href='./raport_main.html#Num9' target=main> srt1 = x1[3]</a>
+<br><li><a class=command href='./raport_main.html#Num10' target=main> srt2 = x2[3]</a>
+<br><li><a class=command href='./raport_main.html#Num11' target=main> srt3 = x3[3]</a>
+<br><li><a class=command href='./raport_main.html#Num12' target=main> inw1</a>
+<br><li><a class=command href='./raport_main.html#Num13' target=main> inw2</a>
+<br><li><a class=command href='./raport_main.html#Num14' target=main> inw3</a>
+<br><li><a class=command href='./raport_main.html#Num15' target=main> srt1</a>
+<br><li><a class=command href='./raport_main.html#Num16' target=main> srt2</a>
+<br><li><a class=command href='./raport_main.html#Num17' target=main> srt3</a>
+<br><li><a class=command href='./raport_main.html#Num18' target=main> a = t(inw1)</a>
+<br><li><a class=command href='./raport_main.html#Num19' target=main> b = t(inw2)</a>
+<br><li><a class=command href='./raport_main.html#Num20' target=main> c = t(inw3)</a>
+<br><li><a class=command href='./raport_main.html#Num21' target=main> barplot(a, col = rainbow(10), main = "Nak³ady inwestycyjne w przedsiêbiorstwach w mln z³. ogó³em rok 2008",     bg = "red", col.main = "blue", xlab = "Powiaty", ylab = "Nak³ady w mln z³.",     col.lab = "red", col.axis = "green")</a>
+<br><li><a class=command href='./raport_main.html#Num22' target=main> dev.copy(jpeg, filename = "Nak³ady inwestycyjne w przedsiêbiorstwach w mln z³. ogó³em rok 2008.jpg")</a>
+<br><li><a class=command href='./raport_main.html#Num23' target=main> dev.off()</a>
+<br><li><a class=command href='./raport_main.html#Num24' target=main> barplot(b, col = rainbow(10), main = "Nak³ady inwestycyjne w przedsiêbiorstwach w mln z³. ogó³em rok 2009",     bg = "red", col.main = "blue", xlab = "Powiaty", ylab = "Nak³ady w mln z³.",     col.lab = "red", col.axis = "green")</a>
+<br><li><a class=command href='./raport_main.html#Num25' target=main> dev.copy(jpeg, filename = "Nak³ady inwestycyjne w przedsiêbiorstwach w mln z³. ogó³em rok 2009.jpg")</a>
+<br><li><a class=command href='./raport_main.html#Num26' target=main> dev.off()</a>
+<br><li><a class=command href='./raport_main.html#Num27' target=main> barplot(c, col = rainbow(10), main = "Nak³ady inwestycyjne w przedsiêbiorstwach w mln z³. ogó³em rok 2010",     bg = "red", col.main = "blue", xlab = "Powiaty", ylab = "Nak³ady w mln z³.",     col.lab = "red", col.axis = "green")</a>
+<br><li><a class=command href='./raport_main.html#Num28' target=main> dev.copy(jpeg, filename = "Nak³ady inwestycyjne w przedsiêbiorstwach w mln z³. ogó³em rok 2010.jpg")</a>
+<br><li><a class=command href='./raport_main.html#Num29' target=main> dev.off()</a>
+<br><li><a class=command href='./raport_main.html#Num30' target=main> plot(a, b, type = "p", main = "Zale¿noœæ pomiêdzy inwestycjami w 2008 i 2009 roku",     col = rainbow(20), xlab = "Inwestycje w 2008 roku", ylab = "inwestycje w 2009 roku",     col.main = "green", col.lab = "red", col.axis = "green")</a>
+<br><li><a class=command href='./raport_main.html#Num31' target=main> dev.copy(jpeg, filename = "Zale¿noœæ pomiêdzy inwestycjami w 2008 i 2009 roku.jpg")</a>
+<br><li><a class=command href='./raport_main.html#Num32' target=main> dev.off()</a>
+<br><li><a class=command href='./raport_main.html#Num33' target=main> plot(b, c, type = "p", main = "Zale¿noœæ pomiêdzy inwestycjami w 2009 i 2010 roku",     col = rainbow(20), xlab = "Inwestycje w 2009 roku", ylab = "inwestycje w 2010 roku",     col.main = "green", col.lab = "red", col.axis = "green")</a>
+<br><li><a class=command href='./raport_main.html#Num34' target=main> dev.copy(jpeg, filename = "Zale¿noœæ pomiêdzy inwestycjami w 2009 i 2010 roku.jpg")</a>
+<br><li><a class=command href='./raport_main.html#Num35' target=main> dev.off()</a>
+<br><li><a class=command href='./raport_main.html#Num36' target=main> shapiro.test(a)</a>
+<br><li><a class=command href='./raport_main.html#Num37' target=main> shapiro.test(b)</a>
+<br><li><a class=command href='./raport_main.html#Num38' target=main> shapiro.test(c)</a>
+<br><li><a class=command href='./raport_main.html#Num39' target=main> wilcox.test(a, b)</a>
+<br><li><a class=command href='./raport_main.html#Num40' target=main> wilcox.test(b, c)</a>
+<br><li><a class=command href='./raport_main.html#Num41' target=main> inwestycje08_10 = data.frame(inwestycje = c(a, b, c), rok = rep(2008:2010,     each = 379))</a>
+<br><li><a class=command href='./raport_main.html#Num42' target=main> bartlett.test(inwestycje ~ rok, inwestycje08_10)</a>
+<br><li><a class=command href='./raport_main.html#Num43' target=main> kruskal.test(inwestycje ~ rok, inwestycje08_10)</a>
+<br><li><a class=command href='./raport_main.html#Num44' target=main> anova(aov(inwestycje ~ rok, inwestycje08_10))</a>
+<br><li><a class=command href='./raport_main.html#Num45' target=main> d = t(srt1)</a>
+<br><li><a class=command href='./raport_main.html#Num46' target=main> e = t(srt2)</a>
+<br><li><a class=command href='./raport_main.html#Num47' target=main> f = t(srt3)</a>
+<br><li><a class=command href='./raport_main.html#Num48' target=main> barplot(d, col = rainbow(10), main = "Wartoœæ brutto œrodków trwa³ych w przedsiêbiorstwach w mln. z³. ogó³em rok 2008",     bg = "red", col.main = "red", xlab = "Powiaty", ylab = "Wartoœæ œrodków trwa³ych w mln z³.",     col.lab = "blue", col.axis = "green")</a>
+<br><li><a class=command href='./raport_main.html#Num49' target=main> dev.copy(jpeg, filename = "Wartoœæ brutto œrodków trwa³ych w przedsiêbiorstwach w mln. z³. ogó³em rok 2008.jpg")</a>
+<br><li><a class=command href='./raport_main.html#Num50' target=main> dev.off()</a>
+<br><li><a class=command href='./raport_main.html#Num51' target=main> barplot(e, col = rainbow(10), main = "Wartoœæ brutto œrodków trwa³ych w przedsiêbiorstwach w mln. z³. ogó³em rok 2009",     bg = "red", col.main = "red", xlab = "Powiaty", ylab = "Wartoœæ œrodków trwa³ych w mln z³.",     col.lab = "blue", col.axis = "green")</a>
+<br><li><a class=command href='./raport_main.html#Num52' target=main> dev.copy(jpeg, filename = "Wartoœæ brutto œrodków trwa³ych w przedsiêbiorstwach w mln. z³. ogó³em rok 2009.jpg")</a>
+<br><li><a class=command href='./raport_main.html#Num53' target=main> dev.off()</a>
+<br><li><a class=command href='./raport_main.html#Num54' target=main> barplot(f, col = rainbow(10), main = "Wartoœæ brutto œrodków trwa³ych w przedsiêbiorstwach w mln. z³. ogó³em rok 2010",     bg = "red", col.main = "red", xlab = "Powiaty", ylab = "Wartoœæ œrodków trwa³ych w mln z³.",     col.lab = "blue", col.axis = "green")</a>
+<br><li><a class=command href='./raport_main.html#Num55' target=main> dev.copy(jpeg, filename = "Wartoœæ brutto œrodków trwa³ych w przedsiêbiorstwach w mln. z³. ogó³em rok 2010.jpg")</a>
+<br><li><a class=command href='./raport_main.html#Num56' target=main> dev.off()</a>
+<br><li><a class=command href='./raport_main.html#Num57' target=main> plot(d, e, type = "p", main = "Zale¿noœæ pomiêdzy wartoœciami œrodków trwa³ych w 2008 i 2009 roku",     col = rainbow(20), xlab = "Œrodki trwa³e w 2008 roku", ylab = "Œrodki trwa³e w 2009 roku",     col.main = "red", col.lab = "blue", col.axis = "green")</a>
+<br><li><a class=command href='./raport_main.html#Num58' target=main> dev.copy(jpeg, filename = "Zale¿noœæ pomiêdzy wartoœciami œrodków trwa³ych roku.jpg")</a>
+<br><li><a class=command href='./raport_main.html#Num59' target=main> dev.off()</a>
+<br><li><a class=command href='./raport_main.html#Num60' target=main> plot(e, f, type = "p", main = "Zale¿noœæ pomiêdzy wartoœciami œrodków trwa³ych w 2009 i 2010 roku",     col = rainbow(20), xlab = "Œrodki trwa³e w 2009 roku", ylab = "Œrodki trwa³e w 2010 roku",     col.main = "red", col.lab = "blue", col.axis = "green")</a>
+<br><li><a class=command href='./raport_main.html#Num61' target=main> dev.copy(jpeg, filename = "Zale¿noœæ pomiêdzy wartoœciami œrodków trwa³ych roku.jpg")</a>
+<br><li><a class=command href='./raport_main.html#Num62' target=main> dev.off()</a>
+<br><li><a class=command href='./raport_main.html#Num63' target=main> shapiro.test(d)</a>
+<br><li><a class=command href='./raport_main.html#Num64' target=main> shapiro.test(e)</a>
+<br><li><a class=command href='./raport_main.html#Num65' target=main> shapiro.test(f)</a>
+<br><li><a class=command href='./raport_main.html#Num66' target=main> wilcox.test(d, e)</a>
+<br><li><a class=command href='./raport_main.html#Num67' target=main> wilcox.test(e, f)</a>
+<br><li><a class=command href='./raport_main.html#Num68' target=main> œrodki_trwa³e_08_10 = data.frame(œrodki_trwa³e = c(d, e, f),     rok = rep(2008:2010, each = 379))</a>
+<br><li><a class=command href='./raport_main.html#Num69' target=main> bartlett.test(œrodki_trwa³e ~ rok, œrodki_trwa³e_08_10)</a>
+<br><li><a class=command href='./raport_main.html#Num70' target=main> kruskal.test(œrodki_trwa³e ~ rok, œrodki_trwa³e_08_10)</a>
+<br><li><a class=command href='./raport_main.html#Num71' target=main> anova(aov(œrodki_trwa³e ~ rok, œrodki_trwa³e_08_10))</a>
+<br><li><a class=command href='./raport_main.html#Num72' target=main> wyniki_lotto.txt <- read.table("wyniki lotto.txt", header = F)</a>
+<br><li><a class=command href='./raport_main.html#Num73' target=main> l = print(wyniki_lotto.txt)</a>
+<br><li><a class=command href='./raport_main.html#Num74' target=main> summary(l)</a>
+<br><li><a class=command href='./raport_main.html#Num75' target=main> kula1 = l[1]</a>
+<br><li><a class=command href='./raport_main.html#Num76' target=main> kula2 = l[2]</a>
+<br><li><a class=command href='./raport_main.html#Num77' target=main> kula3 = l[3]</a>
+<br><li><a class=command href='./raport_main.html#Num78' target=main> kula4 = l[4]</a>
+<br><li><a class=command href='./raport_main.html#Num79' target=main> kula5 = l[5]</a>
+<br><li><a class=command href='./raport_main.html#Num80' target=main> kula6 = l[6]</a>
+<br><li><a class=command href='./raport_main.html#Num81' target=main> k1 = t(kula1)</a>
+<br><li><a class=command href='./raport_main.html#Num82' target=main> k2 = t(kula2)</a>
+<br><li><a class=command href='./raport_main.html#Num83' target=main> k3 = t(kula3)</a>
+<br><li><a class=command href='./raport_main.html#Num84' target=main> k4 = t(kula4)</a>
+<br><li><a class=command href='./raport_main.html#Num85' target=main> k5 = t(kula5)</a>
+<br><li><a class=command href='./raport_main.html#Num86' target=main> k6 = t(kula6)</a>
+<br><li><a class=command href='./raport_main.html#Num87' target=main> los = t(l)</a>
+<br><li><a class=command href='./raport_main.html#Num88' target=main> summary(los)</a>
+<br><li><a class=command href='./raport_main.html#Num89' target=main> pairs(los, col = rainbow(20))</a>
+<br><li><a class=command href='./raport_main.html#Num90' target=main> dev.copy(jpeg, filename = "Rzuty.jpg")</a>
+<br><li><a class=command href='./raport_main.html#Num91' target=main> dev.off()</a>
+<br><li><a class=command href='./raport_main.html#Num92' target=main> hist(los, main = "Czêstoœæ wyrzuceñ poszczególnych numerów kul",     col.main = "green", xlab = "Numery kul", ylab = "Czêstoœæ wyst¹pienia",     col.lab = "green", col = rainbow(20), col.axis = "red")</a>
+<br><li><a class=command href='./raport_main.html#Num93' target=main> dev.copy(jpeg, filename = "Czêstoœæ wyrzuceñ poszczególnych numerów kul.jpg")</a>
+<br><li><a class=command href='./raport_main.html#Num94' target=main> dev.off()</a>
+<br><li><a class=command href='./raport_main.html#Num95' target=main> plot(density(los, bw = 2), main = "Wykres gêstoœæi", col.main = "green",     xlab = "Numery kul", ylab = "Gêstoœæ")</a>
+<br><li><a class=command href='./raport_main.html#Num96' target=main> dev.copy(jpeg, filename = "Wykres gêstoœæi.jpg")</a>
+<br><li><a class=command href='./raport_main.html#Num97' target=main> dev.off()</a>
+<br><li><a class=command href='./raport_main.html#Num98' target=main> hist(los, main = "Wykres z³o¿ony", col.main = "green", xlab = "Numery kul",     ylab = "Gêstoœæ", col.lab = "green", col = rainbow(20), col.axis = "red",     prob = T)</a>
+<br><li><a class=command href='./raport_main.html#Num99' target=main> lines(density(los))</a>
+<br><li><a class=command href='./raport_main.html#Num100' target=main> rug(los)</a>
+<br><li><a class=command href='./raport_main.html#Num101' target=main> dev.copy(jpeg, filename = "Wykres z³o¿ony.jpg")</a>
+<br><li><a class=command href='./raport_main.html#Num102' target=main> dev.off()</a>
+<br><li><a class=command href='./raport_main.html#Num103' target=main> boxplot(los, main = "Wykres pude³kowy", col.main = "green", xlab = "Numer losowania",     ylab = "Numer kuli", col.lab = "green", col = rainbow(20),     col.axis = "red")</a>
+<br><li><a class=command href='./raport_main.html#Num104' target=main> dev.copy(jpeg, filename = "Wykres pude³kowy lotto.jpg")</a>
+<br><li><a class=command href='./raport_main.html#Num105' target=main> dev.off()</a>
+<br><li><a class=command href='./raport_main.html#Num106' target=main> t.test(los, fg = "red", col.main = "blue")</a>
+<br><li><a class=command href='./raport_main.html#Num107' target=main> wilcox.test(los, fg = "red", col.main = "blue")</a>
+<br><li><a class=command href='./raport_main.html#Num108' target=main> shapiro.test(los)</a>
+<br><li><a class=command href='./raport_main.html#Num109' target=main> pr = rep(1/49, 49)</a>
+<br><li><a class=command href='./raport_main.html#Num110' target=main> chisq.test(los, p = pr)</a>

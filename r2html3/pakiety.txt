@@ -1,0 +1,10 @@
+do pracy zosta³y u¿yte nastêpuj¹ce pakiety:
+
+datasets
+R2HTML
+scatterplot3d
+
+
+
+Wersja R:
+r3.1.2 64 bit
